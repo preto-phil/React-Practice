@@ -13,11 +13,20 @@ Header.defaultProps = {
     title: 'Task Tracker',
 
   } 
- // Using prop-types makes your code more robust 
+
+  // Using prop-types makes your code more robust 
 
   Header.propTypes = {
     title: PropTypes.string.isRequired,
 
   }
+
+/* CSS in JS 
+
+const headingStyle = {
+  color: 'black',
+  backgroundColor: 'grey',
+}
+*/
 
 export default Header 
