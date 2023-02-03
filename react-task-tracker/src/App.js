@@ -3,6 +3,7 @@
 import Header from "./Components/Header";
 import Tasks from "./Components/Tasks";
 import { useState } from 'react'
+import AddTask from "./Components/AddTask";
 
 function App() {
   
@@ -29,16 +30,24 @@ function App() {
     ]
 )
 
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+  }
+
+  const toggleReminder = (id) => {
+    setTasks(tasks.map((task) => task.id === id
+    ? { ...task, reminder: !task.reminder} : task
+    ))
+  }
+
   return (
     <div className="Container">
       <Header />
-      <Tasks tasks={tasks} />
+      <AddTask />
+      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : ("No Tasks")}
     </div>
   );
 } 
-
-
-
 
 /* Making a class
 
