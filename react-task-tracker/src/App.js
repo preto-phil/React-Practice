@@ -7,6 +7,8 @@ import AddTask from "./Components/AddTask";
 
 function App() {
   
+const [showAddTask, setShowAddTask] = useState(false)
+
   const [tasks, setTasks] = useState(
     [
         {
@@ -28,7 +30,7 @@ function App() {
             reminder: false,
         },
     ]
-)
+  )
 
   const addTask = (task) => {
     const id = Math.floor(Math.random() * 1000) + 1
@@ -48,8 +50,8 @@ function App() {
 
   return (
     <div className="Container">
-      <Header />
-      <AddTask onAdd={addTask} />
+      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask} />
+      {showAddTask && <AddTask onAdd={addTask} />}
       {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : ("No Tasks")}
     </div>
   );
