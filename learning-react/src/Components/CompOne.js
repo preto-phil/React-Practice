@@ -1,7 +1,9 @@
+import React from 'react'
 
-
-function CompOne(props) {
-    return <h2>Hello {this.props.name}</h2>
+const CompOne = ({ name }) => {
+  return (
+    <h2>Hello {name}!</h2> 
+    )
 }
 
 export default CompOne
