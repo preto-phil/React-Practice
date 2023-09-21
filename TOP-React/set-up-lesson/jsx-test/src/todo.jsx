@@ -7,10 +7,16 @@ export default function TodoList() {
         alt="Hedy Lamarr"
         className="photo"
       />
-      <ul>
+      <ul style={{
+      backgroundColor: 'black',
+      color: 'pink'
+    }}>
           <li>Invent new traffic lights</li>
           <li>Rehearse a movie scene</li>
           <li>Improve the spectrum technology</li>
+          <li>Improve the videophone</li>
+          <li>Prepare aeronautics lectures</li>
+          <li>Work on the alcohol-fuelled engine</li>
       </ul>
     </div>
   )
