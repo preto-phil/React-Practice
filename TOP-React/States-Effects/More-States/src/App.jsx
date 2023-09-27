@@ -2,7 +2,12 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [person, setPerson] = useState({ name: 'John', age: 100 });
+  const [person, setPerson] = useState({ 
+    firstName: 'John', 
+    lastName: 'Doe', 
+    age: 100 
+  });
+  const fullName = person.firstName + " " + person.lastName;
 
   // BAD - Don't do this!
 /*   const badHandleIncreaseAge = () =>{
@@ -31,7 +36,25 @@ function App() {
 
   return (
     <>
-      <h1>{person.name}</h1>
+      <h1>{fullName}</h1>
+      <label htmlFor="firstName">First Name:{' '}
+      <input 
+        id="firstName"
+        type="text" 
+        value={person.firstName}
+        onChange={(event) => setPerson({ ...person, firstName: event.target.value })}
+      />
+      </label>
+      <br />
+      <br />
+      <label htmlFor="lastName">Last Name:{' '} 
+      <input 
+        id="lastName"
+        type="text" 
+        value={person.lastName}
+        onChange={(event) => setPerson({ ...person, lastName: event.target.value })}
+      />
+      </label>
       <h2>{person.age}</h2>
       <button onClick={handleIncreaseAge}>Increase Age</button>
     </>
